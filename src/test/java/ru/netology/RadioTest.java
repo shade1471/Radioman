@@ -8,7 +8,7 @@ class RadioTest {
     private Radio radio = new Radio();
 
     @Test
-    void shouldSetNumberStationMoreRange() {
+    void shouldSetNumberStationOverRange() {
 
         radio.setCurrentNumber(10);
 
@@ -107,6 +107,31 @@ class RadioTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void shouldSetVolumeLessRange() {
+
+        radio.setCurrentVolume(-1);
+
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void shouldSetVolumeOverRange() {
+
+        radio.setCurrentVolume(11);
+
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+
+        assertEquals(expected, actual);
+
+    }
+
 
     @Test
     void shouldIncreaseVolumeMoreMax() {
